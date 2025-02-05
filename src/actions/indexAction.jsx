@@ -7,11 +7,10 @@ export const GET_PLAYERS = "GET_PLAYERS";
 
 export function getSports() {
     return async function(dispatch){
-        var json = await axios.get("https://www.thesportsdb.com/api/v1/json/3/all_sports.php")
-        console.log(json.data)
+        var json = await axios.get("https://www.thesportsdb.com/api/v1/json/3/all_leagues.php")
         return dispatch({
             type : "GET_SPORTS",
-            payload : json.data
+            payload : json.data.leagues
         })
     }
 }
@@ -19,7 +18,6 @@ export function getSports() {
 export function getLeagues() {
     return async function(dispatch){
         var json = await axios.get("https://www.thesportsdb.com/api/v1/json/3/all_leagues.php")
-        console.log(json.data)
         return dispatch({
             type : "GET_LEAGUES",
             payload : json.data

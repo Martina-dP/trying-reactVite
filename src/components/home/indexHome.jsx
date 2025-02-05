@@ -1,10 +1,12 @@
 //import React from 'react';
+import Sports from '../items/sports/sports';
+import IndexHeader from '../header/indexHeader';
 
 const Home = () => {
     return (
         <div>
-            <h1>Welcome to the Home Page</h1>
-            <p>This is the starting point of your application.</p>
+            <IndexHeader />
+            <Sports />
         </div>
     );
 };

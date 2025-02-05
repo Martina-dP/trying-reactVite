@@ -12,27 +12,27 @@ const initialState = {
 
 };
 
-const indexReducer = (state = initialState, action) => {
-    switch (action.type) {
+const indexReducer = (state = initialState, { type, payload }) => {
+    switch (type) {
         case GET_SPORTS:
             return {
-                ...state,
-                sports: action.payload
+            ...state,
+            sports: payload.map(sport => sport.strSport),
             };
         case GET_LEAGUES:
             return {
                 ...state,
-                leagues: action.payload
+                leagues: payload
             };
         case GET_TEAMS:
             return {
                 ...state,
-                teams: action.payload
+                teams: payload
             };
         case GET_PLAYERS:
             return {
                 ...state,
-                players: action.payload
+                players: payload
             };
         default:
             return state;
