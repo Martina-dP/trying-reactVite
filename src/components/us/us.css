@@ -1,0 +1,13 @@
+.about-us {
+    background-image: url("../../../public/background3.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 90vh;
+}
+
+.about-us-columns {
+    grid-template-columns: repeat(2, 1fr);
+    display: grid;
+    height: 100%;
+}

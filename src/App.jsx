@@ -5,7 +5,7 @@ import Home from './components/home/indexHome';
 
 function App() {
     return (
-      <Provider store={store}>
+      <Provider store={store} >
         <Router>
           <Routes>
             <Route path="/" element={<Home />} />

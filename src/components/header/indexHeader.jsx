@@ -3,9 +3,9 @@ import './header.css';
 
 const IndexHeader = () => {
     return (
-        <nav className="navbar">
-            <h1 className="navbar-tittle">Welcome to the sports world</h1>
-        </nav>
+        <div className="navbar">
+            <h1 className="navbar-title">TechSportZone-365</h1>
+        </div>
     );
 };
 
