@@ -17,10 +17,10 @@ export function getSports() {
 
 export function getLeagues() {
     return async function(dispatch){
-        var json = await axios.get("https://www.thesportsdb.com/api/v1/json/3/all_leagues.php")
+        var json = await axios.get(`https://www.thesportsdb.com/api/v1/json/3/all_leagues.php`)
         return dispatch({
             type : "GET_LEAGUES",
-            payload : json.data
+            payload : json.data.leagues
         })
     }
 }

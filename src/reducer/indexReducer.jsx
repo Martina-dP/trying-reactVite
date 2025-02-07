@@ -22,7 +22,7 @@ const indexReducer = (state = initialState, { type, payload }) => {
         case GET_LEAGUES:
             return {
                 ...state,
-                leagues: payload
+                leagues: payload,
             };
         case GET_TEAMS:
             return {
