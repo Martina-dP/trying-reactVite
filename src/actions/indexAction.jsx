@@ -25,16 +25,37 @@ export function getLeagues() {
     }
 }
 
-export function getTeams(sport,country) {
+export function getTeams(league) {
     return async function(dispatch){
-        var json = await axios.get(`https://www.thesportsdb.com/api/v1/json/3/search_all_teams.php?s=${sport}&c=${country}`)
-        console.log(json.data)
+        var json = await axios.get(`https://www.thesportsdb.com/api/v1/json/3/search_all_teams.php?l=${league}`)
         return dispatch({
             type : "GET_TEAMS",
             payload : json.data
         })
     }
 }
+
+// export function getSeasons(sport,country) {
+//     return async function(dispatch){
+//         var json = await axios.get(`https://www.thesportsdb.com/api/v1/json/3/search_all_teams.php?s=${sport}&c=${country}`)
+//         console.log(json.data)
+//         return dispatch({
+//             type : "GET_TEAMS",
+//             payload : json.data
+//         })
+//     }
+// }
+
+// export function getCountries(sport,country) {
+//     return async function(dispatch){
+//         var json = await axios.get(`https://www.thesportsdb.com/api/v1/json/3/search_all_teams.php?s=${sport}&c=${country}`)
+//         console.log(json.data)
+//         return dispatch({
+//             type : "GET_TEAMS",
+//             payload : json.data
+//         })
+//     }
+// }
 
 export function getPlayers(idTeam) {
     return async function(dispatch){
