@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams, Link } from 'react-router-dom';
 import { getLeagues } from '../../../actions/indexAction';
+import './leagues.css';
 
 const Leagues = () => {
 
@@ -16,16 +17,22 @@ const Leagues = () => {
 
     const filteredLeagues = leaguesList.filter(league => league.strSport === sport);
 
+    console.log(filteredLeagues);
+
     return (
-        <div className="sports-container">
-            <p>{sport} leagues</p>
-            {filteredLeagues.map((league, index) => (
-                <div key={index} className="sport-card">
-                    <Link key={index} to={`/${sport}/leagues/${league.strLeague}/teams`}>
-                            <p>{league.strLeague}</p>
-                    </Link>
-                </div>
-            ))}
+        <div className="leagues-container">
+            <div>
+                <p className="leagues-container-title">{sport} leagues</p>
+            </div>
+            <div className="leagues-container-links">
+                {filteredLeagues.map((league, index) => (
+                    <div key={index} className="leagues-card">
+                        <Link key={index} to={`/${sport}/leagues/${league.strLeague}/teams`}>
+                                <p className="leagues-name">{league.strLeague}</p>
+                        </Link>
+                    </div>
+                ))}
+            </div>
         </div>
     );
 };

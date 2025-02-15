@@ -1,0 +1,19 @@
+.leagues-container {
+    margin: 0;
+}
+
+.leagues-container-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.leagues-card {
+    width: 100%;
+    max-width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: wheat;
+    margin-bottom: 2em;
+}

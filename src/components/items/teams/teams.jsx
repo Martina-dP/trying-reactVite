@@ -1,11 +1,14 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { getTeams } from '../../../actions/indexAction';
+import './teams.css';
 
 const Teams = () => {
-    const { league } = useParams();
+    const { league, sport } = useParams();
     const teamsList = useSelector(state => state.teams);
+
+    console.log(teamsList, "teamsList");
 
     const dispatch = useDispatch();
 
@@ -13,16 +16,20 @@ const Teams = () => {
         dispatch(getTeams(league));
     }, [dispatch]);
 
-    console.log(teamsList, "soy lista de equipos");
-
     return (
-        <div>
-            {teamsList.map(team => (
-                <div key={team.idTeam}>
-                    <h3>{team.strTeam}</h3>
-                    <p>{team.strDescriptionEN}</p>
-                </div>
-            ))}
+        <div className="teams-container">
+            <div>
+                <h3>Teams</h3>
+            </div>
+            <div className="teams-container-list">
+                {teamsList.map((team, index) => (
+                    <div className="teams-card" key={index}>
+                        <Link key={index} to={`/${sport}/leagues/${team.strLeague}/teams/${team.idTeam}/details`}> 
+                            <p>{team.strTeam}</p>
+                        </Link>
+                    </div>
+                ))}
+            </div>
         </div>
     );
 };
